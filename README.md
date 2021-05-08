@@ -1,4 +1,5 @@
-# HackaItau
+# HackaItau 
+## Equipe W.O.
 
 Durante o hacka tentamos diversas soluções, no entanto nenhuma funcionou bem ***ainda***.
 A primeira tentativa foi usando o método do ponto interior. 
