@@ -1,34 +1,35 @@
 import numpy as np
 
-def portfolio_return(w, e_r):
+def portfolio_return(w : np.ndarray, e_r : np.ndarray) -> float:
     """
     Essa função calcula o retorno esperado de uma carteira dado o vetor de retornos esperados.
     Args:
-        w (np.array): vetor com os pesos da carteira
-        e_r (np.array): vetor com os retornos esperados
+        w (np.ndarray): vetor com os pesos da carteira
+        e_r (np.ndarray): vetor com os retornos esperados
     Returns:
         float: retorno esperado da carteira
     """
     return float(w.T@e_r)
 
-def portfolio_vol(w, cov):
+def portfolio_vol(w : np.ndarray, cov : np.ndarray) -> float:
     """
     Essa função calcula a volatilidade de uma carteira dado a matriz de covariância.
     Args:
-        w (np.array): vetor com os pesos da carteira
-        cov (np.array): matriz da covariância
+        w (np.ndarray): vetor com os pesos da carteira
+        cov (np.ndarray): matriz da covariância
     Returns:
         float: volatilidade do carteira
     """
     return np.sqrt(w.T@cov@w)
 
-def sharpe_ratio(w, e_r, cov, r_f=0):
+def sharpe_ratio(w : np.ndarray, e_r : np.ndarray,
+                 cov : np.ndarray, r_f : float = 0) -> float:
     """
     Essa função calcula o Sharpe Ratio de uma carteira dado a matriz de covariância e vetor de retornos esperados.
     Args:
-        w (np.array): vetor com os pesos da carteira
-        e_r (np.array): vetor com os retornos esperados
-        cov (np.array): matriz da covariância
+        w (np.ndarray): vetor com os pesos da carteira
+        e_r (np.ndarray): vetor com os retornos esperados
+        cov (np.ndarray): matriz da covariância
         r_f (float): Taxa Livre de Risco
     Returns:
         float: Sharpe Ratio do portfólio
@@ -42,6 +43,7 @@ class CovarianceEstimator:
     """
     Classe usada para estimar a matriz de covariância a partir da matriz estimada pela amostra e pela matriz de correlação constante.
     Baseado no artigo "Honey, I Shrunk the Sample Covariance Matrix" do Olivier Ledoit e Michael Wolf, The Journal of Portfolio Management.
+    Disponível em http://www.ledoit.net/honey.pdf
     Pegamos boa parte do código da biblioteca PyPortfolioOpt.
     """
     def __init__(self, returns):
