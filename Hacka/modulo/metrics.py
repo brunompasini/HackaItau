@@ -50,12 +50,7 @@ class CovarianceEstimator:
         self.returns = returns.dropna()
         self.S = returns.cov().values
     
-    def honey_shrinkage(self):
-        """
-        Pegamos da biblioteca pyPortfolioopt.
-        """
-        
-        
+    def honey_shrinkage(self):    
         X = np.nan_to_num(self.returns.values)
         t, n = np.shape(X)
 
